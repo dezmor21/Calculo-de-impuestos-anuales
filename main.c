@@ -1,10 +1,8 @@
-//NueveUno Practica P4
-//Tiempo= 03:45
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 
-//DeclaraciÛn y definiciÛn de constantes simbÛlicas
+//Declaraci√≥n y definici√≥n de constantes simb√≥licas
 #define MES_CAPTURA 1
 #define CAPTURA_INGRESOS 2
 #define CAPTURA_GASTOS 3
@@ -69,8 +67,8 @@ typedef struct
 
 int main()
 {
-    //DeclaraciÛn de variables para entrada de datos
-    //DeclaraciÛn de variables para cÛmputo
+    //Declaraci√≥n de variables para entrada de datos
+    //Declaraci√≥n de variables para c√≥mputo
     setlocale(LC_ALL,"");
     meses[0]="ENERO";
     meses[1]="FEBRERO";
@@ -116,7 +114,7 @@ int main()
             salidaPrograma=(opc==SALIR) ? C_1:C_0;
             break;
         default:
-            printf("OpciÛn no v·lida\n");
+            printf("Opci√≥n no v√°lida\n");
             getchar();
             printf("Presione entrar para continuar\n");
             getchar();
@@ -134,18 +132,18 @@ void inicializacion()
 }
 void mostrarMenu()
 {
-    printf("C¡LCULO DE IMPUESTOS ANUAL\n");
-    printf("Men˙ principal:\n");
+    printf("C√ÅLCULO DE IMPUESTOS ANUAL\n");
+    printf("Men√∫ principal:\n");
     printf("1. Establecer mes para captura (mes actual es %s)\n",meses[mesCapturado]);
     printf("2. Captura de ingresos\n");
     printf("3. Captura de gastos\n");
     printf("4. Mostrar lista de ingresos anual\n");
     printf("5. Mostrar lista de gastos anual\n");
-    printf("6. C·lculo de impuestos anual\n");
+    printf("6. C√°lculo de impuestos anual\n");
     printf("7. Eliminar un ingreso\n");
     printf("8. Eliminar un gasto\n");
     printf("9. Salir\n");
-    printf("OpciÛn \n");
+    printf("Opci√≥n \n");
 }
 void CapturarMes()
 {
@@ -200,7 +198,7 @@ void capturarGastos()
     printf("Monto: ");
     scanf("%f",&Gasto.montoGasto);
     gastoDelMes[mesCapturado]+=Gasto.montoGasto;
-    printf("JustificaciÛn: ");
+    printf("Justificaci√≥n: ");
     scanf("%s",Gasto.justificacion);
     pausar();
 
@@ -218,7 +216,7 @@ void mostrarListaDeIngreso()
 }
 void mostrarListaDeGasto()
 {
-    printf(" #       mes     monto       JustificaciÛn         Concepto \n");
+    printf(" #       mes     monto       Justificaci√≥n         Concepto \n");
     for (i=0; i<TOTAL_MESES; i++)
     {
     printf("%d      %s       %.2f       %s                     %s \n",i,meses[i],gastoDelMes[i],
@@ -238,7 +236,7 @@ void calcularImpuestoAnual()
     {
         gastoTotal+=gastoDelMes[i];
     }
-    //C·lculo de impuestos
+    //C√°lculo de impuestos
     iva= ingresoTotal*IVA/C_100;
     subtotal= ingresoTotal+iva;
     retIsr=ingresoTotal*RET_ISR/C_100;
@@ -253,14 +251,14 @@ void calcularImpuestoAnual()
     gastoIva= gastoTotal*IVA/C_100;
     totalIva= iva-gastoIva-retIva;
     //Salida de datos
-    printf("|C¡LCULO DE IMPUESTOS\n");
+    printf("|C√ÅLCULO DE IMPUESTOS\n");
     printf("__________________________________\n");
     printf("|***Tabla Recibo de Honorarios***\n");
     printf("|INGRESOS            %.2f \n",ingresoTotal);
     printf("|(+) IVA             %.2f \n",iva);
     printf("|(=) Subtotal        %.2f \n",subtotal);
-    printf("|(-) RETENCI”N ISR   %.2f \n",retIsr);
-    printf("|(-) RETENCI”N IVA   %.2f \n",retIva);
+    printf("|(-) RETENCI√ìN ISR   %.2f \n",retIsr);
+    printf("|(-) RETENCI√ìN IVA   %.2f \n",retIva);
     printf("|(=) Total           %.2f \n",total);
     printf("|________________________________\n");
     printf("|***Tabla Ganancias***\n");
@@ -279,7 +277,7 @@ void calcularImpuestoAnual()
     printf("|***Tabla IVA***\n");
     printf("|IVA                 %.2f \n",iva);
     printf("|(-) Gastos IVA      %.2f \n",gastoIva);
-    printf("|(-) RetenciÛn IVA   %.2f \n",retIva);
+    printf("|(-) Retenci√≥n IVA   %.2f \n",retIva);
     printf("|(=) IVA a pagar     %.2f \n",totalIva);
     printf("|________________________________\n");
 }
